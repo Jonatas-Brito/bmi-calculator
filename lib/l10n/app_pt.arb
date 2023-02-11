@@ -1,0 +1,6 @@
+{
+  "projectName": "Projeto Calculadora de IMC",
+  "@projectName": {
+    "description": "Nome do projeto"
+  }
+}

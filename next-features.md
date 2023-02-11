@@ -1,0 +1,3 @@
+- Add form fiel in values text as height, weight, age;
+- Add animation on click in buttons of sex and buttons of add and subtract;
+- Add continuos click in buttons used to subtract and add. Create a new method in bloc to add values;
