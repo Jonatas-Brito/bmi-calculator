@@ -1,0 +1,6 @@
+{
+  "projectName": "Calculator BMI Project",
+  "@projectName": {
+    "description": "Project name"
+  }
+}
