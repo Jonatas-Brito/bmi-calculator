@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/core/enums/bmi_type_enum.dart';
+import 'package:calcule_imc/core/enums/bmi_type_enum.dart';
 import 'package:equatable/equatable.dart';
 
 class BmiInformationsEntity extends Equatable {

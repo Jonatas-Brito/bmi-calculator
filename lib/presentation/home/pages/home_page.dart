@@ -1,9 +1,9 @@
-import 'package:bmi_calculator/di/di.dart';
-import 'package:bmi_calculator/presentation/home/bloc/calculate_bmi/calculate_bmi_bloc.dart';
-import 'package:bmi_calculator/presentation/home/bloc/counter_age/counter_age_bloc.dart';
-import 'package:bmi_calculator/presentation/home/bloc/counter_weight/counter_weight_bloc.dart';
-import 'package:bmi_calculator/presentation/home/bloc/select_sex/select_sex_bloc.dart';
-import 'package:bmi_calculator/presentation/home/pages/home_view.dart';
+import 'package:calcule_imc/di/di.dart';
+import 'package:calcule_imc/presentation/home/bloc/calculate_bmi/calculate_bmi_bloc.dart';
+import 'package:calcule_imc/presentation/home/bloc/counter_age/counter_age_bloc.dart';
+import 'package:calcule_imc/presentation/home/bloc/counter_weight/counter_weight_bloc.dart';
+import 'package:calcule_imc/presentation/home/bloc/select_sex/select_sex_bloc.dart';
+import 'package:calcule_imc/presentation/home/pages/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

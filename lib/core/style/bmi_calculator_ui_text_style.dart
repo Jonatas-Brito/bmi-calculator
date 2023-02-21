@@ -1,7 +1,7 @@
-import 'package:bmi_calculator/core/style/bmi_caculator_ui_branding_colors.dart';
-import 'package:bmi_calculator/core/style/bmi_calculate_ui_line_heights.dart';
-import 'package:bmi_calculator/core/style/bmi_calculator_ui_colors.dart';
-import 'package:bmi_calculator/core/style/bmi_calculator_ui_font_weight.dart';
+import 'package:calcule_imc/core/style/bmi_caculator_ui_branding_colors.dart';
+import 'package:calcule_imc/core/style/bmi_calculate_ui_line_heights.dart';
+import 'package:calcule_imc/core/style/bmi_calculator_ui_colors.dart';
+import 'package:calcule_imc/core/style/bmi_calculator_ui_font_weight.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

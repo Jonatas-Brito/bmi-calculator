@@ -1,6 +1,6 @@
-import 'package:bmi_calculator/core/style/bmi_caculator_ui_branding_colors.dart';
-import 'package:bmi_calculator/core/style/bmi_calculator_ui_theme.dart';
-import 'package:bmi_calculator/presentation/router/router.dart';
+import 'package:calcule_imc/core/style/bmi_caculator_ui_branding_colors.dart';
+import 'package:calcule_imc/core/style/bmi_calculator_ui_theme.dart';
+import 'package:calcule_imc/presentation/router/router.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {

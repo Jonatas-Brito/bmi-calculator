@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bmi_calculator/core/enums/status_enum.dart';
+import 'package:calcule_imc/core/enums/status_enum.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';

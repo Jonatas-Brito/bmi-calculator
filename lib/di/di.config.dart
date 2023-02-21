@@ -5,21 +5,20 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:bmi_calculator/data/datasources/calculate_bmi_local_datasource.dart'
+import 'package:calcule_imc/data/datasources/calculate_bmi_local_datasource.dart'
     as _i3;
-import 'package:bmi_calculator/data/repositories/calculate_bmi_repositoy_impl.dart'
+import 'package:calcule_imc/data/repositories/calculate_bmi_repositoy_impl.dart'
     as _i5;
-import 'package:bmi_calculator/domain/repositories/calculate_bmi_repositoy.dart'
+import 'package:calcule_imc/domain/repositories/calculate_bmi_repositoy.dart'
     as _i4;
-import 'package:bmi_calculator/domain/usecases/calculate_bmi_usecase.dart'
-    as _i6;
-import 'package:bmi_calculator/presentation/home/bloc/calculate_bmi/calculate_bmi_bloc.dart'
+import 'package:calcule_imc/domain/usecases/calculate_bmi_usecase.dart' as _i6;
+import 'package:calcule_imc/presentation/home/bloc/calculate_bmi/calculate_bmi_bloc.dart'
     as _i10;
-import 'package:bmi_calculator/presentation/home/bloc/counter_age/counter_age_bloc.dart'
+import 'package:calcule_imc/presentation/home/bloc/counter_age/counter_age_bloc.dart'
     as _i7;
-import 'package:bmi_calculator/presentation/home/bloc/counter_weight/counter_weight_bloc.dart'
+import 'package:calcule_imc/presentation/home/bloc/counter_weight/counter_weight_bloc.dart'
     as _i8;
-import 'package:bmi_calculator/presentation/home/bloc/select_sex/select_sex_bloc.dart'
+import 'package:calcule_imc/presentation/home/bloc/select_sex/select_sex_bloc.dart'
     as _i9;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;

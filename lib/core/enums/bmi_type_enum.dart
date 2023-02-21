@@ -1,5 +1,5 @@
-import 'package:bmi_calculator/core/constants/bmi_text_constants.dart';
-import 'package:bmi_calculator/core/icons/bmi_icons.dart';
+import 'package:calcule_imc/core/constants/bmi_text_constants.dart';
+import 'package:calcule_imc/core/icons/bmi_icons.dart';
 
 enum BmiType {
   veryUnderweight(

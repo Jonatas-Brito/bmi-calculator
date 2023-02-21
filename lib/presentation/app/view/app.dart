@@ -1,1 +1,1 @@
-export 'package:bmi_calculator/presentation/app/view/app_page.dart';
+export 'package:calcule_imc/presentation/app/view/app_page.dart';

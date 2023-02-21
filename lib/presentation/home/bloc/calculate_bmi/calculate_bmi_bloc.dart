@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:bmi_calculator/core/enums/status_enum.dart';
-import 'package:bmi_calculator/domain/entities/bmi_informations_entity.dart';
-import 'package:bmi_calculator/domain/entities/informations_about_user_entity.dart';
-import 'package:bmi_calculator/domain/usecases/calculate_bmi_usecase.dart';
+import 'package:calcule_imc/core/enums/status_enum.dart';
+import 'package:calcule_imc/domain/entities/bmi_informations_entity.dart';
+import 'package:calcule_imc/domain/entities/informations_about_user_entity.dart';
+import 'package:calcule_imc/domain/usecases/calculate_bmi_usecase.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';

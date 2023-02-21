@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/core/enums/sex_enum.dart';
+import 'package:calcule_imc/core/enums/sex_enum.dart';
 import 'package:equatable/equatable.dart';
 
 class InformationsAboutUserEntity extends Equatable {

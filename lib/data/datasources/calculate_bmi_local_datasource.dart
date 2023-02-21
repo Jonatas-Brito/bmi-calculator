@@ -1,7 +1,7 @@
-import 'package:bmi_calculator/core/enums/bmi_type_enum.dart';
-import 'package:bmi_calculator/core/error/exception.dart';
-import 'package:bmi_calculator/data/model/bmi_informations_model.dart';
-import 'package:bmi_calculator/domain/entities/informations_about_user_entity.dart';
+import 'package:calcule_imc/core/enums/bmi_type_enum.dart';
+import 'package:calcule_imc/core/error/exception.dart';
+import 'package:calcule_imc/data/model/bmi_informations_model.dart';
+import 'package:calcule_imc/domain/entities/informations_about_user_entity.dart';
 import 'package:injectable/injectable.dart';
 
 abstract class CalculateBmiLocalDatasource {

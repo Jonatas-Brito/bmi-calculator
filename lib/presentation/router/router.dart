@@ -1,6 +1,6 @@
-import 'package:bmi_calculator/core/enums/route_enum.dart';
-import 'package:bmi_calculator/presentation/home/pages/home_page.dart';
-import 'package:bmi_calculator/presentation/splash/view/splash_page.dart';
+import 'package:calcule_imc/core/enums/route_enum.dart';
+import 'package:calcule_imc/presentation/home/pages/home_page.dart';
+import 'package:calcule_imc/presentation/splash/view/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

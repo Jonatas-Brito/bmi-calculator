@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/core/error/failure.dart';
+import 'package:calcule_imc/core/error/failure.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class UseCase<Type, Params> {

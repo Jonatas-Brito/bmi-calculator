@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:bmi_calculator/presentation/app/app.dart';
-import 'package:bmi_calculator/presentation/app/view/app_page.dart';
+import 'package:calcule_imc/presentation/app/app.dart';
+import 'package:calcule_imc/presentation/app/view/app_page.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

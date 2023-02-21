@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/presentation/home/pages/home_page.dart';
+import 'package:calcule_imc/presentation/home/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {

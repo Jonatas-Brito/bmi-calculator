@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/core/style/bmi_calculator_ui_neutral_colors.dart';
+import 'package:calcule_imc/core/style/bmi_calculator_ui_neutral_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppPage extends StatelessWidget {
