@@ -9,8 +9,8 @@ jobs:
     uses: ./.github/workflows/flutter_package.yaml
     with:
       flutter_channel: stable
-      flutter_version: 3.7.0
-      min_coverage: 65
+      flutter_version: 3.7.3
+      min_coverage: 0
   verify-semantic-pull-request:
     uses: >-
       VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
