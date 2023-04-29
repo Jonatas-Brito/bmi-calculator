@@ -11,8 +11,8 @@ jobs:
     uses: ./.github/workflows/flutter_package.yaml
     with:
       flutter_channel: stable
-      flutter_version: 3.7.3
-      # min_coverage: 65
+      flutter_version: 3.7.0
+      min_coverage: 65
 
   verify-semantic-pull-request:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
@@ -27,5 +27,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: noop
-        run: echo 'noop'
+      - name: none
+        run: echo 'none'
