@@ -16,8 +16,8 @@ jobs:
       flutter_version: 3.7.3
       min_coverage: 0
 
-  secrets:
-    key_store: ${{ secrets.KEYSTORE }}
+  # secrets:
+  #   key_store: ${{ secrets.KEYSTORE }}
 
   build-app-bundle:
     name: Build Flutter (Android)
