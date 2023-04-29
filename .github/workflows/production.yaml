@@ -48,8 +48,8 @@ jobs:
           encodedString: ${{ secrets.KEYSTORE }}
 
       - name: 💪 Build App Bundle
-      with:
-      filelocation: ${{ steps.write_file.outputs.filePath }}
+        with:
+          filelocation: ${{ steps.write_file.outputs.filePath }}
         run: |
           echo filelocation
           cat filelocation
