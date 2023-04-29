@@ -7,15 +7,15 @@ on:
       - dev-*
 
 jobs:
-  verify-semantic-pull-request:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
-
   verify-flutter:
     uses: ./.github/workflows/flutter_package.yaml
     with:
       flutter_channel: stable
       flutter_version: 3.7.3
       # min_coverage: 65
+
+  verify-semantic-pull-request:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
 
   build:
     needs:
