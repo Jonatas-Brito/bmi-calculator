@@ -1,0 +1,37 @@
+name: Run tests and analyze code
+
+on:
+  push:
+    branches:
+      - DEV-*
+      - dev-*
+
+jobs:
+  verify-semantic-pull-request:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
+
+  verify-flutter:
+    uses: ./.github/workflows/flutter_package.yaml
+    with:
+      flutter_channel: stable
+      flutter_version: 3.7.3
+      # min_coverage: 65
+
+    # secrets:
+    #   ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+  verify-semantic-pull-request:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
+
+  build:
+    needs:
+      [
+        verify-flutter,
+        verify-semantic-pull-request,
+      ]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: noop
+        run: echo 'noop'
