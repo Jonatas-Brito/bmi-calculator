@@ -44,7 +44,7 @@ jobs:
         id: write_file
         uses: timheuer/base64-to-file@v1
         with:
-          fileName: "upload-keystore.jks"
+          fileName: "app-keystore.jks"
           encodedString: ${{ secrets.KEYSTORE }}
 
       - name: 💪 Build App Bundle
