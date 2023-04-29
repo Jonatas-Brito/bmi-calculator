@@ -16,8 +16,8 @@ jobs:
       flutter_version: 3.7.3
       min_coverage: 0
 
-  # secrets:
-  #   ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+  secrets:
+    key_store: ${{ secrets.KEYSTORE }}
 
   build-app-bundle:
     name: Build Flutter (Android)
@@ -48,9 +48,12 @@ jobs:
           encodedString: ${{ secrets.KEYSTORE }}
 
       - name: 💪 Build App Bundle
+      with:
+      filelocation: ${{ steps.write_file.outputs.filePath }}
         run: |
-        cat ${{ steps.write_file.outputs.filePath }}
-        flutter build appbundle --release --build-name=1.0.${{ github.run_number }} --build-number=${{ github.run_number }}
+          echo filelocation
+          cat filelocation
+          flutter build appbundle --release --build-name=1.0.${{ github.run_number }} --build-number=${{ github.run_number }}
         env:
           ANDROID_KEYSTORE_PATH: ${{ steps.write_file.outputs.filePath }}
           ANDROID_KEYSTORE_ALIAS: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
