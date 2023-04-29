@@ -1,11 +1,9 @@
 name: Run tests and analyze code
-
-on:
+'on':
   push:
     branches:
       - DEV-*
       - dev-*
-
 jobs:
   verify-flutter:
     uses: ./.github/workflows/flutter_package.yaml
@@ -13,19 +11,14 @@ jobs:
       flutter_channel: stable
       flutter_version: 3.7.0
       min_coverage: 65
-
   verify-semantic-pull-request:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
-
+    uses: >-
+      VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
   build:
     needs:
-      [
-        verify-flutter,
-        verify-semantic-pull-request,
-      ]
-
+      - verify-flutter
+      - verify-semantic-pull-request
     runs-on: ubuntu-latest
-
     steps:
       - name: none
         run: echo 'none'
