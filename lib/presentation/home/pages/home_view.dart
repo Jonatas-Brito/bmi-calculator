@@ -33,8 +33,8 @@ class _HomeViewState extends State<HomeView> with HomeMixin {
   late CounterAgeBloc _counterAgeBloc;
   Sex _sex = Sex.unselected;
   double _height = 1.5;
-  double _weight = 50;
   int _age = 25;
+  double _weight = 50;
 
   @override
   initState() {
