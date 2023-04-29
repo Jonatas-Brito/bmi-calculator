@@ -36,6 +36,7 @@ jobs:
         uses: timheuer/base64-to-file@v1
         with:
           fileName: "app_keystore.jks"
+          fileDir: './outputs/'
           encodedString: ${{ secrets.KEYSTORE }}
 
       - name: 💪 Build App Bundle
