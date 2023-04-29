@@ -41,8 +41,7 @@ jobs:
       - name: 💪 Build App Bundle
         with:
           filelocation: ${{ steps.write_file.outputs.filePath }}
-        run: 
-          flutter build appbundle --release --build-name=1.0.${{ github.run_number }} --build-number=${{ github.run_number }}
+        run: flutter build appbundle --release --build-name=1.0.${{ github.run_number }} --build-number=${{ github.run_number }}
         env:
           ANDROID_KEYSTORE_PATH: filelocation
           ANDROID_KEYSTORE_ALIAS: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
