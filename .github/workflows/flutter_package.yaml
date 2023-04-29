@@ -45,8 +45,8 @@ jobs:
     defaults:
       run:
         working-directory: ${{inputs.working_directory}}
-    
-    runs-on: ${{inputs-runs_on}}
+
+    runs-on: ${{inputs.runs_on}}
 
     steps:
       - name: 📚 Git Checkout
