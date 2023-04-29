@@ -16,9 +16,6 @@ jobs:
       flutter_version: 3.7.3
       min_coverage: 0
 
-  # secrets:
-  #   key_store: ${{ secrets.KEYSTORE }}
-
   build-app-bundle:
     name: Build Flutter (Android)
     needs: [verify-flutter, verify-semantic-pull-request]
@@ -30,12 +27,6 @@ jobs:
 
       - name: 🐦 Setup Flutter
         uses: subosito/flutter-action@v2
-
-      # - name: 🔥 SSH Private Dependencies
-      #   uses: webfactory/ssh-agent@v0.7.0
-      #   with:
-      #     ssh-private-key: |
-      #       ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: 📦 Install Dependencies
         run: flutter packages get
