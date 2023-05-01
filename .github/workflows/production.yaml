@@ -31,30 +31,31 @@ jobs:
       - name: 📦 Install Dependencies
         run: flutter packages get
 
-      # - name: 🪄 Decode Keystore
-      #   id: write_file
-      #   uses: timheuer/base64-to-file@v1
+      - name: 🪄 Decode Keystore
+        id: write_file
+        uses: timheuer/base64-to-file@v1
+        with:
+          fileName: "app-keystore.jks"
+          fileDir: './android/'
+          encodedString: ${{ secrets.KEYSTORE }}
+
+      # - name: Decode Keystore
+      #   uses: davidSchuppa/base64Secret-toFile-action@v1
       #   with:
-      #     fileName: "app-keystore.jks"
-      #     fileDir: './outputs/'
-      #     encodedString: ${{ secrets.KEYSTORE }}
+      #       secret: ${{ secrets.KEYSTORE }}
+      #       filename: app-keystore.jks
+      #       destination-path: ./android/
 
-      - name: Decode Keystore
-        uses: davidSchuppa/base64Secret-toFile-action@v1
-        with:
-            secret: ${{ secrets.KEYSTORE }}
-            filename: app-keystore.jks
-            destination-path: ./android/
-
-      - name: Setup JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
+      # - name: Setup JDK 11
+      #   uses: actions/setup-java@v1
+      #   with:
+      #     java-version: 11
 
       - name: Generate key properties file
         run: |
-          export STORE_FILE_PATH=$(pwd)/app-keystore.jks
           cd android
+          ls
+          export STORE_FILE_PATH=$(pwd)/app-keystore.jks
           echo -e "storePassword=$ANDROID_KEYSTORE_PASSWORD\nkeyAlias=$ANDROID_KEYSTORE_ALIAS\nkeyPassword=$ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD\nstoreFile=$STORE_FILE_PATH" > key.properties
           cat key.properties
         env:
