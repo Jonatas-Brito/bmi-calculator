@@ -59,7 +59,7 @@ jobs:
           # ls outputs
           cd android
           echo ${{ secrets.KEYSTORE }} > app-keystore
-          echo -e "storePassword=$ANDROID_KEYSTORE_PASSWORD\nkeyAlias=$ANDROID_KEYSTORE_ALIAS\nkeyPassword=$ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD" > keystore.properties
+          echo -e "storePassword=$ANDROID_KEYSTORE_PASSWORD\nkeyAlias=$ANDROID_KEYSTORE_ALIAS\nkeyPassword=$ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD" > key.properties
           ./gradlew bundleRelease --info --stacktrace
         env:
           STORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
