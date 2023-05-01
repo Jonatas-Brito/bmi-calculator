@@ -31,21 +31,40 @@ jobs:
       - name: 📦 Install Dependencies
         run: flutter packages get
 
-      - name: 🪄 Decode Keystore
-        id: write_file
-        uses: timheuer/base64-to-file@v1
-        with:
-          fileName: "app_keystore.jks"
-          fileDir: './outputs/'
-          encodedString: ${{ secrets.KEYSTORE }}
+      # - name: 🪄 Decode Keystore
+      #   id: write_file
+      #   uses: timheuer/base64-to-file@v1
+      #   with:
+      #     fileName: "app_keystore.jks"
+      #     fileDir: './outputs/'
+      #     encodedString: ${{ secrets.KEYSTORE }}
 
-      - name: 💪 Build App Bundle
-        run: flutter build appbundle --release --build-name=1.0.${{ github.run_number }} --build-number=${{ github.run_number }}
+      - name: Setup JDK 8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+
+      - name: Build app bundle
+        run: flutter build appbundle --release --build-number=1.0.${{ github.run_number }} --build-name=1.0.${{ github.run_number }}
+      
+      - name: Sign app bundle
+        run: |
+          cd android
+          echo ${{ secrets.KEYSTORE | base64decode }} > app-keystore
+          echo -e "storePassword=$ANDROID_KEYSTORE_PASSWORD\nkeyAlias=$ANDROID_KEYSTORE_ALIAS\nkeyPassword=$ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD" > keystore.properties
+          ./gradlew bundleRelease --info --stacktrace
         env:
-          ANDROID_KEYSTORE_PATH: ${{ steps.write_file.outputs.filePath }}
-          ANDROID_KEYSTORE_ALIAS: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
-          ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD }}
-          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          STORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD }}
+
+      # - name: 💪 Build App Bundle
+      #   run: flutter build appbundle --release --build-name=1.0.${{ github.run_number }} --build-number=${{ github.run_number }}
+      #   env:
+      #     ANDROID_KEYSTORE_PATH: ${{ steps.write_file.outputs.filePath }}
+      #     ANDROID_KEYSTORE_ALIAS: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
+      #     ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD }}
+      #     ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
 
       - name: 🧷 Upload APK
         uses: actions/upload-artifact@v3
