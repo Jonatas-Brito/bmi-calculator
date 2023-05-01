@@ -39,30 +39,17 @@ jobs:
           fileDir: './android/'
           encodedString: ${{ secrets.KEYSTORE }}
 
-      # - name: Generate key properties file
-      #   run: |
-      #     cd android
-      #     ls
-      #     export STORE_FILE_PATH=$(pwd)/app-keystore.jks
-      #     export ANDROID_KEYSTORE_PASSWORD=${{secrets.ANDROID_KEYSTORE_PASSWORD}}
-      #     export ANDROID_KEYSTORE_ALIAS=${{secrets.ANDROID_KEYSTORE_ALIAS}}
-      #     export ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD=${{ secrets.ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD }}
-      #     echo -e "storePassword=$ANDROID_KEYSTORE_PASSWORD\nkeyAlias=$ANDROID_KEYSTORE_ALIAS\nkeyPassword=$ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD\nstoreFile=$STORE_FILE_PATH" > key.properties
-      #     cat key.properties
-
-      # - name: 💪 Build app bundle
-      #   run: flutter build appbundle --release --build-name=1.0.${{ github.run_number }} --build-number=${{ github.run_number }}
-
-
-      - name: 💪 Build App Bundle
+      - name: Generate key properties file
         run: |
+          cd android
           export STORE_FILE_PATH=$(pwd)/app-keystore.jks
-          flutter build appbundle --release --build-name=1.0.${{ github.run_number }} --build-number=${{ github.run_number }}
-        env:
-          ANDROID_KEYSTORE_PATH: ${{ steps.write_file.outputs.filePath }}
-          ANDROID_KEYSTORE_ALIAS: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
-          ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD }}
-          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          export ANDROID_KEYSTORE_PASSWORD=${{secrets.ANDROID_KEYSTORE_PASSWORD}}
+          export ANDROID_KEYSTORE_ALIAS=${{secrets.ANDROID_KEYSTORE_ALIAS}}
+          export ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD=${{ secrets.ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD }}
+          echo -e "storePassword=$ANDROID_KEYSTORE_PASSWORD\nkeyAlias=$ANDROID_KEYSTORE_ALIAS\nkeyPassword=$ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD\nstoreFile=$STORE_FILE_PATH" > key.properties
+
+      - name: 💪 Build app bundle
+        run: flutter build appbundle --release --build-name=1.0.${{ github.run_number }} --build-number=${{ github.run_number }}
 
       - name: 🧷 Upload APK
         uses: actions/upload-artifact@v3
