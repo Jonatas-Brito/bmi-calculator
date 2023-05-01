@@ -56,12 +56,15 @@ jobs:
           cd android
           ls
           export STORE_FILE_PATH=$(pwd)/app-keystore.jks
+          export ANDROID_KEYSTORE_PASSWORD=${{secrets.ANDROID_KEYSTORE_PASSWORD}}
+          export ANDROID_KEYSTORE_ALIAS=${{secrets.ANDROID_KEYSTORE_ALIAS}}
+          export ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD=${{ secrets.ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD }}
           echo -e "storePassword=$ANDROID_KEYSTORE_PASSWORD\nkeyAlias=$ANDROID_KEYSTORE_ALIAS\nkeyPassword=$ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD\nstoreFile=$STORE_FILE_PATH" > key.properties
           cat key.properties
-        env:
-          STORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD }}
+        # env:
+        #   STORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        #   KEY_ALIAS: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
+        #   KEY_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD }}
           # KEYSTORE_PATH: $STORE_FILE_PATH
 
       - name: 💪 Build app bundle
