@@ -39,23 +39,24 @@ jobs:
       #     fileDir: './outputs/'
       #     encodedString: ${{ secrets.KEYSTORE }}
 
-      # - name: Decode secret
+      # - name: Decode Keystore
       #   uses: davidSchuppa/base64Secret-toFile-action@v1
       #   with:
       #       secret: ${{ secrets.KEYSTORE }}
       #       filename: app_keystore.jks
       #       destination-path: ./outputs/
 
-      - name: Setup JDK 8
+      - name: Setup JDK 11
         uses: actions/setup-java@v1
         with:
-          java-version: 8
+          java-version: 11
 
       - name: 💪 Build app bundle
         run: flutter build appbundle --release --build-name=1.0.${{ github.run_number }} --build-number=${{ github.run_number }}
 
       - name: Sign app bundle
         run: |
+          # ls outputs
           cd android
           echo ${{ secrets.KEYSTORE }} > app-keystore
           echo -e "storePassword=$ANDROID_KEYSTORE_PASSWORD\nkeyAlias=$ANDROID_KEYSTORE_ALIAS\nkeyPassword=$ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD" > keystore.properties
