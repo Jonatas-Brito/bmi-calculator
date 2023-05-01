@@ -39,13 +39,20 @@ jobs:
       #     fileDir: './outputs/'
       #     encodedString: ${{ secrets.KEYSTORE }}
 
+      # - name: Decode secret
+      #   uses: davidSchuppa/base64Secret-toFile-action@v1
+      #   with:
+      #       secret: ${{ secrets.KEYSTORE }}
+      #       filename: app_keystore.jks
+      #       destination-path: ./outputs/
+
       - name: Setup JDK 8
         uses: actions/setup-java@v1
         with:
           java-version: 8
 
       - name: 💪 Build app bundle
-        run: flutter build appbundle --release --build-number=1.0.${{ github.run_number }} --build-name=1.0.${{ github.run_number }}
+        run: flutter build appbundle --release --build-name=1.0.${{ github.run_number }} --build-number=${{ github.run_number }}
 
       - name: Sign app bundle
         run: |
