@@ -46,11 +46,11 @@ jobs:
 
       - name: 💪 Build app bundle
         run: flutter build appbundle --release --build-number=1.0.${{ github.run_number }} --build-name=1.0.${{ github.run_number }}
-      
+
       - name: Sign app bundle
         run: |
           cd android
-          echo ${{ secrets.KEYSTORE | base64decode }} > app-keystore
+          echo ${{ secrets.KEYSTORE }} > app-keystore
           echo -e "storePassword=$ANDROID_KEYSTORE_PASSWORD\nkeyAlias=$ANDROID_KEYSTORE_ALIAS\nkeyPassword=$ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD" > keystore.properties
           ./gradlew bundleRelease --info --stacktrace
         env:
