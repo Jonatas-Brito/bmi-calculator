@@ -3,6 +3,7 @@ class BmiIcons {
   static String femaleIcon = 'assets/icons/woman-icon.svg';
   static String minusIcon = 'assets/icons/minus.svg';
   static String plusIcon = 'assets/icons/plus.svg';
+  static String logo = 'assets/icons/launch_image.png';
   static const String closeIcon = 'assets/icons/close-icon.svg';
   static const String chartParliamentCongratulationsIconPng =
       'assets/icons/chart-parliament-congratulations-icon.png';
