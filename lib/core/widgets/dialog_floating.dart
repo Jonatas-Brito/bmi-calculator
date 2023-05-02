@@ -56,7 +56,7 @@ class DialogFloating {
         key: const ValueKey('dialog-floating'),
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
-        backgroundColor: BmiCalculatorUiBrandingColors.greenVogue,
+        backgroundColor: BmiCalculatorUiBrandingColors.primaryColor,
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -87,20 +87,16 @@ class DialogFloating {
             Text(
               title,
               textAlign: TextAlign.center,
-              style: BmiCalculatorUiTextStyle.xs.copyWith(
-                color: BmiCalculatorUiBrandingColors.whitePure,
+              style: BmiCalculatorUiTextStyle.medium.copyWith(
                 fontWeight: BmiCalculateUiFontWeight.bold,
-                fontSize: 20,
               ),
             ),
             const SizedBox(height: 15),
             Text(
               description,
               textAlign: TextAlign.center,
-              style: BmiCalculatorUiTextStyle.xxs.copyWith(
-                color: BmiCalculatorUiBrandingColors.whitePure,
+              style: BmiCalculatorUiTextStyle.xs.copyWith(
                 fontWeight: BmiCalculateUiFontWeight.regular,
-                fontSize: 16,
               ),
             ),
             const SizedBox(height: 90),
