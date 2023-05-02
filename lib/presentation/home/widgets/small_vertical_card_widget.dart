@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 class SmallVerticalCard extends StatelessWidget {
   const SmallVerticalCard({
     this.child,
-    this.color = BmiCalculatorUiBrandingColors.chatamsBlue,
+    this.color,
     this.onTap,
     super.key,
   });
 
-  final Color color;
+  final Color? color;
   final Widget? child;
   final VoidCallback? onTap;
   @override
@@ -23,7 +23,7 @@ class SmallVerticalCard extends StatelessWidget {
         width: 130,
         height: 140,
         decoration: BoxDecoration(
-          color: color,
+          color: color ?? BmiCalculatorUiBrandingColors.secondaryColor,
           borderRadius: const BorderRadius.all(
             Radius.circular(6),
           ),
