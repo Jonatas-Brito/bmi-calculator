@@ -243,7 +243,10 @@ class _HomeViewState extends State<HomeView> with HomeMixin {
             alignment: Alignment.center,
             height: 74,
             color: BmiCalculatorUiBrandingColors.flushOrange,
-            child: Text('CALCULAR', style: BmiCalculatorUiTextStyle.medium),
+            child: Text(
+              'CALCULAR',
+              style: BmiCalculatorUiTextStyle.medium,
+            ),
           ),
         ),
       ),
