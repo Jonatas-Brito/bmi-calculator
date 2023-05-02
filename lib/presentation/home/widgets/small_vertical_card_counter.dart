@@ -29,8 +29,8 @@ class SmallVerticalCardCounter extends StatefulWidget {
 }
 
 class _SmallVerticalCardCounterState extends State<SmallVerticalCardCounter> {
-  Color plusButtonColor = BmiCalculatorUiBrandingColors.greenVogue;
-  Color minusButtonColor = BmiCalculatorUiBrandingColors.greenVogue;
+  Color plusButtonColor = BmiCalculatorUiBrandingColors.primaryColor;
+  Color minusButtonColor = BmiCalculatorUiBrandingColors.primaryColor;
   double buttonSize = 38;
   @override
   void initState() {
@@ -59,12 +59,14 @@ class _SmallVerticalCardCounterState extends State<SmallVerticalCardCounter> {
                 onLongPress: widget.pressedContinuouslyAdd,
                 onTapDown: (details) {
                   setState(() {
-                    plusButtonColor = BmiCalculatorUiBrandingColors.flushOrange;
+                    plusButtonColor =
+                        BmiCalculatorUiBrandingColors.tertiaryColor;
                   });
                 },
                 onTapUp: (details) {
                   setState(() {
-                    plusButtonColor = BmiCalculatorUiBrandingColors.greenVogue;
+                    plusButtonColor =
+                        BmiCalculatorUiBrandingColors.primaryColor;
                   });
                 },
                 child: Container(
@@ -86,13 +88,14 @@ class _SmallVerticalCardCounterState extends State<SmallVerticalCardCounter> {
                   setState(() {
                     if (widget.value > 0) {
                       minusButtonColor =
-                          BmiCalculatorUiBrandingColors.flushOrange;
+                          BmiCalculatorUiBrandingColors.tertiaryColor;
                     }
                   });
                 },
                 onTapUp: (details) {
                   setState(() {
-                    minusButtonColor = BmiCalculatorUiBrandingColors.greenVogue;
+                    minusButtonColor =
+                        BmiCalculatorUiBrandingColors.primaryColor;
                   });
                 },
                 child: Container(
