@@ -6,7 +6,7 @@ class CounterAgeState extends Equatable {
 
   const CounterAgeState({
     this.status = Status.initial,
-    this.age = 30,
+    this.age = 0,
   });
 
   @override
