@@ -2,8 +2,8 @@ import 'package:calcule_imc/core/enums/sex_enum.dart';
 import 'package:calcule_imc/core/enums/status_enum.dart';
 import 'package:calcule_imc/core/icons/bmi_icons.dart';
 import 'package:calcule_imc/core/style/bmi_caculator_ui_branding_colors.dart';
+import 'package:calcule_imc/core/style/bmi_calculator_ui_neutral_colors.dart';
 import 'package:calcule_imc/core/style/bmi_calculator_ui_text_style.dart';
-import 'package:calcule_imc/core/utils/set_bmi_description_util.dart';
 import 'package:calcule_imc/core/widgets/dialog_floating.dart';
 import 'package:calcule_imc/domain/entities/bmi_informations_entity.dart';
 import 'package:calcule_imc/domain/entities/informations_about_user_entity.dart';
@@ -14,6 +14,7 @@ import 'package:calcule_imc/presentation/home/bloc/select_sex/select_sex_bloc.da
 import 'package:calcule_imc/presentation/home/controllers/slider_controller.dart';
 import 'package:calcule_imc/presentation/home/widgets/small_vertical_card_counter.dart';
 import 'package:calcule_imc/presentation/home/widgets/small_vertical_card_widget.dart';
+import 'package:calcule_imc/presentation/home/mixins/set_bmi_description_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -33,8 +34,8 @@ class _HomeViewState extends State<HomeView> with HomeMixin {
   late CounterAgeBloc _counterAgeBloc;
   Sex _sex = Sex.unselected;
   double _height = 1.5;
-  double _weight = 50;
   int _age = 25;
+  double _weight = 50;
 
   @override
   initState() {
@@ -71,7 +72,7 @@ class _HomeViewState extends State<HomeView> with HomeMixin {
         appBar: AppBar(
           centerTitle: true,
           title: const Text('CALCULE SEU IMC'),
-          backgroundColor: BmiCalculatorUiBrandingColors.greenVogue,
+          backgroundColor: BmiCalculatorUiBrandingColors.primaryColor,
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -132,9 +133,9 @@ class _HomeViewState extends State<HomeView> with HomeMixin {
               Container(
                 width: double.infinity,
                 height: 120,
-                decoration: const BoxDecoration(
-                  color: BmiCalculatorUiBrandingColors.chatamsBlue,
-                  borderRadius: BorderRadius.all(
+                decoration: BoxDecoration(
+                  color: BmiCalculatorUiBrandingColors.secondaryColor,
+                  borderRadius: const BorderRadius.all(
                     Radius.circular(6),
                   ),
                 ),
@@ -170,10 +171,11 @@ class _HomeViewState extends State<HomeView> with HomeMixin {
                             _sliderForHeightController.setSliderValue(
                                 value: value);
                           },
-                          activeColor: BmiCalculatorUiBrandingColors.whitePure,
+                          activeColor: BmiCalculatorUiNeutralColors.highPure,
                           inactiveColor:
-                              BmiCalculatorUiBrandingColors.greenVogue,
-                          thumbColor: BmiCalculatorUiBrandingColors.flushOrange,
+                              BmiCalculatorUiBrandingColors.primaryColor,
+                          thumbColor:
+                              BmiCalculatorUiBrandingColors.tertiaryColor,
                         );
                       },
                     ),
@@ -242,7 +244,7 @@ class _HomeViewState extends State<HomeView> with HomeMixin {
           child: Container(
             alignment: Alignment.center,
             height: 74,
-            color: BmiCalculatorUiBrandingColors.flushOrange,
+            color: BmiCalculatorUiBrandingColors.tertiaryColor,
             child: Text(
               'CALCULAR',
               style: BmiCalculatorUiTextStyle.medium,
@@ -254,6 +256,6 @@ class _HomeViewState extends State<HomeView> with HomeMixin {
   }
 
   Color _setColorBySex(Sex sex) => _sex == sex
-      ? BmiCalculatorUiBrandingColors.flushOrange
-      : BmiCalculatorUiBrandingColors.chatamsBlue;
+      ? BmiCalculatorUiBrandingColors.tertiaryColor
+      : BmiCalculatorUiBrandingColors.secondaryColor;
 }
