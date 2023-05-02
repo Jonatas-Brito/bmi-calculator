@@ -6,7 +6,7 @@ class CounterWeightState extends Equatable {
 
   const CounterWeightState({
     this.status = Status.initial,
-    this.weight = 50,
+    this.weight = 0,
   });
 
   @override
