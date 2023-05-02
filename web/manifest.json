@@ -1,6 +1,6 @@
 {
-    "name": "bmi_calculator",
-    "short_name": "bmi_calculator",
+    "name": "calcule_imc",
+    "short_name": "calcule_imc",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
