@@ -1,6 +1,7 @@
+import 'package:calcule_imc/core/enums/route_enum.dart';
 import 'package:calcule_imc/core/icons/bmi_icons.dart';
-import 'package:calcule_imc/presentation/home/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -14,8 +15,7 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (_) => const HomePage()));
+      GoRouter.of(context).pushReplacement(RouteEnum.home.path);
     });
   }
 
