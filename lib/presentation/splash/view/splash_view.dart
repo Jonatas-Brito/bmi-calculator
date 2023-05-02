@@ -1,3 +1,4 @@
+import 'package:calcule_imc/core/icons/bmi_icons.dart';
 import 'package:calcule_imc/presentation/home/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,12 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: Center(
+        child: Image.asset(
+          BmiIcons.logo,
+        ),
+      ),
+    );
   }
 }
