@@ -1,0 +1,81 @@
+name: Deployment in Google Play
+
+on:
+  push:
+    branches: 
+      - production/*
+
+jobs:
+  verify-semantic-pull-request:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
+
+  verify-flutter:
+    uses: ./.github/workflows/flutter_package.yaml
+    with:
+      flutter_channel: stable
+      flutter_version: 3.7.3
+      min_coverage: 0
+
+  build-app-bundle:
+    name: Build Flutter (Android)
+    needs: [verify-flutter, verify-semantic-pull-request]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v3
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+
+      - name: 📦 Install Dependencies
+        run: flutter packages get
+
+      - name: 🪄 Decode Keystore
+        uses: timheuer/base64-to-file@v1
+        with:
+          fileName: "app-keystore.jks"
+          fileDir: './android/'
+          encodedString: ${{ secrets.KEYSTORE }}
+
+      - name: Generate key properties file
+        run: |
+          cd android
+          export STORE_FILE_PATH=$(pwd)/app-keystore.jks
+          export ANDROID_KEYSTORE_PASSWORD=${{secrets.ANDROID_KEYSTORE_PASSWORD}}
+          export ANDROID_KEYSTORE_ALIAS=${{secrets.ANDROID_KEYSTORE_ALIAS}}
+          export ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD=${{ secrets.ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD }}
+          echo -e "storePassword=$ANDROID_KEYSTORE_PASSWORD\nkeyAlias=$ANDROID_KEYSTORE_ALIAS\nkeyPassword=$ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD\nstoreFile=$STORE_FILE_PATH" > key.properties
+
+      - name: 💪 Build app bundle
+        run: flutter build appbundle --release --build-name=1.0.${{ github.run_number }} --build-number=${{ github.run_number }}
+
+      - name: 🧷 Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-release
+          path: build/app/outputs/bundle/release/
+
+  publish-play-store:
+    name: Publish to Play Store
+    needs: [build-app-bundle]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v3
+
+      - name: 🧷 Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: app-release
+          
+      - name: 🚀 Deploy to Play Store
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT }}
+          packageName: com.britodev.calculeimc
+          releaseFiles: app-release.aab
+          track: alpha
+          status: completed
+          
