@@ -29,7 +29,7 @@ class AppPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                // If you need to add another friendly photo
+                // If you need to add a friendly photo
                 // you can here for example
                 const Text(
                   'Error',
