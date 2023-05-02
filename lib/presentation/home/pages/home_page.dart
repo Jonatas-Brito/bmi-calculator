@@ -23,9 +23,7 @@ class HomePage extends StatelessWidget {
         BlocProvider(
           create: (_) => getIt<CounterWeightBloc>(),
         ),
-        BlocProvider(
-          create: (_) => getIt<CounterAgeBloc>(),
-        ),
+        BlocProvider(create: (_) => getIt<CounterAgeBloc>()),
       ],
       child: const HomeView(),
     );
